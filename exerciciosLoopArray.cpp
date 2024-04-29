@@ -1,4 +1,6 @@
 #include <iostream>
+#include <climits>
+
 using namespace std;
 
 int exe01(){
@@ -123,7 +125,7 @@ int exe08(){
     cout << "Digite 10 número (inteiros ou não): ";
     cin >> array[0] >> array[1] >> array[2] >> array[3] >> array[4] >> array[5] >> array[6] >> array[7] >> array[8] >> array[9];
 
-    float soma = 0.0;
+    float soma = 0;
     for (int i = 0; i < 10; i++) {
         soma += array[i];
     }
@@ -142,7 +144,7 @@ int exe09(){
 
     int array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 11};
 
-    float soma = 0.0;
+    float soma = 0;
     for(int i = 0; i < 10; i++){
         soma += array[i];
     }
@@ -158,17 +160,75 @@ int exe10(){
     //Declare um array de inteiros com 8 elementos e preencha-o com valores de sua escolha. Utilize um loop for para imprimir apenas os números que são múltiplos de 3 e maiores que 10 do array.
 
     int array[8] = {10, 20, 30, 40, 50, 60, 70 ,80};
-    int divisao =  15 %3 == 0 ;
 
     for(int i = 0; i < 8; i++){
-         divisao 
-        cout << array[i] <<endl;
+        if(array[i] > 10 && array[i] %3 == 0){
+            cout << array[i] <<endl;
+        }
     }
 
     return 0;
 }
 
+int exe11(){
 
+    //Declare um array de inteiros com 12 elementos e preencha-o com números de sua escolha. Em seguida, crie um programa que utilize loops for para encontrar e imprimir o valor máximo e o valor mínimo do array.
+
+    int array[12] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 13};
+    int maximo = INT_MIN;
+    int minimo = INT_MAX;
+
+    for(int i = 0; i < 12; i++){
+        if(array[i] > maximo){
+            maximo = array[i];
+        }
+
+        if(array[i] < minimo){
+            minimo = array[i];
+        }
+    }
+
+    cout << "O valor máximo do array é: " << maximo <<endl;
+    cout << "O valor mínimo do array é: " << minimo <<endl;
+
+    return 0;
+}
+
+
+int exe12(){
+
+    //Declare dois arrays de floats, um para armazenar as notas e outro para armazenar os pesos correspondentes.
+    //Ambos os arrays devem ter 5 elementos. Solicite ao usuário que insira valores para as notas e os pesos.
+    //Em seguida, calcule e imprima a média ponderada das notas, onde a média ponderada é calculada pela soma das multiplicações de cada nota pelo seu peso correspondente, dividida pela soma total dos pesos.
+   
+    float notas[5], pesos[5];
+
+    cout << "Digite as 5 notas: ";
+    cin >> notas[0] >> notas[1] >> notas[2] >> notas[3] >> notas[4];
+
+    cout << "Digite os 5 pesos: ";
+    cin >> pesos[0] >> pesos[1] >> pesos[2] >> pesos[3] >> pesos[4];
+
+    float somaPesos = 0;
+    float somaPontos = 0;
+
+    for(int i = 0; i < 5; i++){
+        somaPontos += notas[i] * pesos[i];
+        somaPesos += pesos[i];
+    }
+
+    float media_final;
+
+    if(somaPesos == 0){
+        cout << "Erro: divisão por 0!"<<endl;
+    } else {
+        media_final = somaPontos / somaPesos;
+    }
+
+    cout << "A média é: " << media_final << endl;
+
+    return 0;
+}
 
 
 
@@ -186,9 +246,9 @@ int main(){
     //exe05();
     //exe06();
     //exe07();
-    //exe08();
+    exe08();
     //exe09();
-    exe10();
-
-
+    //exe10();
+    //exe11();
+    //exe12();
 }
