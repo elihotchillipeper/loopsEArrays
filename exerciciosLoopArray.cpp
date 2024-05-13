@@ -52,10 +52,14 @@ int exe04(){
 
     float array[8] = {1.5, 2.5, 3.5, 4.5, 5.5, 6.5, 7.5, 8.5};
     int i = 0;
+    int size = sizeof(array) / sizeof(array[0]);
 
-    while (array[i] < 5)
+    while (i < size && array[i] < 5)
     {
-        cout << array[i] <<endl;
+        i++;
+    }
+    while (i < size) {
+        cout << array[i] << endl;
         i++;
     }
 
@@ -104,11 +108,20 @@ int exe07(){
         -O último elemento se o primeiro for par.
         -O primeiro elemento se a soma do quarto com o oitavo for maior que 22.*/
 
-
-
-
-
-
+   
+    int array[8] = {3, 7, 9, 12, 4, 6, 8, 10};
+    cout << array[2] <<endl;
+    cout << array[5] + array[7] <<endl;
+    cout << array[1] - array[0] <<endl;
+    if(array[3] > 6){
+    cout << array[3] <<endl;
+    }
+    if(array[0] % 2 == 0){
+        cout << array[7] <<endl;
+    }
+    if(array[3] + array[7] > 22){
+        cout << array[0] <<endl;
+    }
 
 
     return 0;
@@ -242,11 +255,11 @@ int main(){
     //exe01();
     //exe02();
     //exe03();
-    //exe04();
+    exe04();
     //exe05();
     //exe06();
     //exe07();
-    exe08();
+    //exe08();
     //exe09();
     //exe10();
     //exe11();
